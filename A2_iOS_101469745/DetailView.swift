@@ -18,6 +18,7 @@ struct DetailView: View {
     ) private var products: FetchedResults<Product>
     
     @State private var currentIndex: Int = 0
+    @State private var showingAddProduct: Bool = false
     
     var body: some View {
             NavigationView {
@@ -113,6 +114,16 @@ struct DetailView: View {
                     }
                 }
                 .background(Color(.systemGroupedBackground))
+                .toolbar{
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: { showingAddProduct = true }){
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
+                .sheet(isPresented: $showingAddProduct) {
+                    AddProductView()
+                }
                 .navigationTitle("Products")
             }
         }
