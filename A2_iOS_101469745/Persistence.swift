@@ -49,5 +49,16 @@ struct PersistenceController {
             ("iPhone 17 Pro Max", "Silver 256GB", 1749.99, "Apple"),
             ("Kindle", "E-reader", 139.99, "Amazon")
         ]
+        
+        for item in products {
+            let product = Product(context: context)
+            product.productID = UUID()
+            product.name = item.name
+            product.productDescription = item.description
+            product.price = item.price
+            product.provider = item.provider)
+        }
+        
+        try? context.save()
     }
 }
