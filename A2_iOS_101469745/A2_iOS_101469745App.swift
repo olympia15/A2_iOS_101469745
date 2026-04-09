@@ -14,7 +14,7 @@ struct A2_iOS_101469745App: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DetailView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
