@@ -56,7 +56,7 @@ struct PersistenceController {
             product.name = item.name
             product.productDescription = item.description
             product.price = item.price
-            product.provider = item.provider)
+            product.provider = item.provider
         }
         
         try? context.save()
