@@ -81,10 +81,40 @@ struct DetailView: View {
 
                         Spacer()
 
-                        
+                        // product counter
+                        Text("\(currentIndex + 1) of \(products.count)")
+                            .foregroundColor(.secondary)
+                            .font(.subheadline)
+                            .padding(.bottom, 8)
+
+                        // prev/next buttons
+                        HStack(spacing: 24) {
+                            Button(action: {
+                                if currentIndex > 0 { currentIndex -= 1 }
+                            }) {
+                                Label("Previous", systemImage: "chevron.left")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .disabled(currentIndex == 0)
+
+                            Button(action: {
+                                if currentIndex < products.count - 1 { currentIndex += 1 }
+                            }) {
+                                Label("Next", systemImage: "chevron.right")
+                                    .labelStyle(.titleAndIcon)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .disabled(currentIndex == products.count - 1)
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 24)
+                    }
+                }
+                .background(Color(.systemGroupedBackground))
+                .navigationTitle("Products")
             }
         }
-    
-    
 }
 
