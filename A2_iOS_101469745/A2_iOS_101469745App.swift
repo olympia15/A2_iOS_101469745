@@ -14,8 +14,18 @@ struct A2_iOS_101469745App: App {
 
     var body: some Scene {
         WindowGroup {
-            DetailView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            TabView{
+                DetailView()
+                    .tabItem{
+                        Label("Browse", systemImage: "rectangle.on.rectangle")
+                    }
+                
+                ProductListView()
+                    .tabItem{
+                        Label("All Products", systemImage: "list.bullet")
+                    }
+            }
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
