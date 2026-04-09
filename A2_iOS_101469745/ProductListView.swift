@@ -5,3 +5,11 @@
 //  Created by Olympia Santaguida-Antunes on 2026-04-09.
 //
 
+struct ProductListView: View {
+    
+    @FetchRequest(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Product.name, ascending: true)],
+            animation: .default
+        ) private var products: FetchedResults<Product>
+    
+}
