@@ -24,6 +24,11 @@ struct A2_iOS_101469745App: App {
                     .tabItem{
                         Label("All Products", systemImage: "list.bullet")
                     }
+                
+                SearchView()
+                    .tabItem{
+                        Label("Search", systemImage: "magnifyingglass")
+                    }
             }
             .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
