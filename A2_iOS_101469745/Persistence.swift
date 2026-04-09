@@ -36,5 +36,18 @@ struct PersistenceController {
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         let count = (try? context.count(for: fetchRequest)) ?? 0
         guard count == 0 else { return }
+        
+        let products: [(name: String, description: String, price: Double, provider: String)] = [
+            ("MacBook Pro", "High-performance laptop for professionals", 2499.99, "Apple"),
+            ("Sony WH-1000XM6", "Noise cancelling headphones", 649.99, "Sony"),
+            ("Samsung 4K Monitor", "27-inch UHD display", 599.99, "Samsung"),
+            ("Playstation 5", "Gaming console", 799.99, "Sony"),
+            ("iPad Air", "Powerful and colourful thin and light iPad", 749.99, "Apple"),
+            ("Nintendo Switch 2", "Gaming console", 599.99, "Nintendo"),
+            ("Anker USB-C Hub", "7-in-1 USB-C hub", 45.99, "Anker"),
+            ("ROG Strix G16", "Gaming laptop", 999.99, "ASUS"),
+            ("iPhone 17 Pro Max", "Silver 256GB", 1749.99, "Apple"),
+            ("Kindle", "E-reader", 139.99, "Amazon")
+        ]
     }
 }
